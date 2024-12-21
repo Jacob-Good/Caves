@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://djrq0k1oiyg5t"]
+
+[ext_resource type="Texture2D" uid="uid://bs2n6fasb6qiw" path="res://images/char_icons/player_idle_01.png" id="1_itxck"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_pygkr"]
+[ext_resource type="Resource" uid="uid://cx3prcc8ns0hq" path="res://resources/player_data.tres" id="2_xtcs0"]
+[ext_resource type="Texture2D" uid="uid://dfo25q8ws3ans" path="res://images/char_icons/player_idle_02.png" id="2_yogio"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yay8a"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_itxck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_yogio")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42t2f"]
+size = Vector2(20, 41)
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_pygkr")
+player = ExtResource("2_xtcs0")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_yay8a")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.232532
+
+[node name="OffScreen" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_42t2f")
+
+[connection signal="screen_exited" from="OffScreen" to="." method="_on_screen_exited"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5gt1g41ileb4"]
+
+[ext_resource type="Texture2D" uid="uid://wh6126bh8vsr" path="res://images/char_icons/goblin_01.png" id="1_qi64c"]
+[ext_resource type="Texture2D" uid="uid://cwo88x0fp77dq" path="res://images/char_icons/goblin_02.png" id="2_7pqwo"]
+[ext_resource type="Script" path="res://scenes/npc.gd" id="3_5mkew"]
+[ext_resource type="Script" path="res://scripts/npc_data.gd" id="4_ne5g1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_06kg1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qi64c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7pqwo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="Resource" id="Resource_csdyd"]
+script = ExtResource("4_ne5g1")
+portrait = "res://images/char_portraits/05.png"
+name = "Gobbo Pantakin"
+health = 12
+mana = 3
+stamina = 5
+strength = 2
+dexterity = 4
+intelligence = 1
+charisma = 2
+defense = 2
+spells = {}
+
+[node name="Goblin" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_06kg1")
+frame_progress = 0.223788
+script = ExtResource("3_5mkew")
+npc_data = SubResource("Resource_csdyd")

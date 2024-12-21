@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://cx3prcc8ns0hq"]
+
+[ext_resource type="Script" path="res://scripts/player_data.gd" id="1_wqwtp"]
+
+[resource]
+script = ExtResource("1_wqwtp")
+player_name = ""
+health = 0
+mana = 0
+stamina = 0
+strength = 0
+dexterity = 0
+intelligence = 0
+charisma = 0
+defense = 0
+spells = {}

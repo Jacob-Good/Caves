@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="NpcData" load_steps=2 format=3 uid="uid://oi7xyh6s3b5u"]
+
+[ext_resource type="Script" path="res://scripts/npc_data.gd" id="1_xbgdt"]
+
+[resource]
+script = ExtResource("1_xbgdt")
+name = ""
+health = 0
+mana = 0
+stamina = 0
+strength = 0
+dexterity = 0
+intelligence = 0
+charisma = 0
+defense = 0
+spells = {}

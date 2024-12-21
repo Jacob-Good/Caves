@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpsm2hh7f2uqw"]
+
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_jjc7q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_03tfp"]
+font_size = 100
+font_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+outline_size = 5
+shadow_size = 0
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_jjc7q")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0807833, 0.0807833, 0.0807833, 1)
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press [Space Bar] To Enter"
+label_settings = SubResource("LabelSettings_03tfp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FlashingTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="FlashingTimer" to="." method="_on_timer_timeout"]

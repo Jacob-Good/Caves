@@ -1,0 +1,315 @@
+[gd_scene load_steps=15 format=3 uid="uid://drq57yvxw7fhh"]
+
+[ext_resource type="Script" path="res://scenes/party_ui.gd" id="1_3rib7"]
+[ext_resource type="Texture2D" uid="uid://dvwcjsicka51g" path="res://images/char_portraits/por_01.png" id="1_n7k4r"]
+[ext_resource type="Texture2D" uid="uid://ctavaky36ihn6" path="res://images/char_portraits/por_02.png" id="2_svyy8"]
+[ext_resource type="Texture2D" uid="uid://b50avrh32vu4p" path="res://images/char_portraits/por_03.png" id="3_6qwrr"]
+[ext_resource type="Texture2D" uid="uid://cigt5n4cd5kff" path="res://images/char_portraits/por_04.png" id="4_0p363"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xk142"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_16b5a"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fb267"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bus5h"]
+bg_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o8n8f"]
+bg_color = Color(0, 0, 0, 0.686275)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xtkta"]
+font_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exe2g"]
+bg_color = Color(0, 0, 0, 0.686275)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8oaxq"]
+font_size = 14
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62oq4"]
+size = Vector2(97, 525)
+
+[node name="PartyUI" type="Control"]
+layout_mode = 3
+anchor_left = 0.005
+anchor_top = 0.02
+anchor_right = 0.055
+anchor_bottom = 0.5
+offset_left = 0.400001
+offset_top = 0.4
+offset_right = 0.400002
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3rib7")
+
+[node name="Members" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Leader" type="TextureButton" parent="Members"]
+layout_mode = 2
+texture_normal = ExtResource("1_n7k4r")
+stretch_mode = 3
+
+[node name="Leader" type="HBoxContainer" parent="Members/Leader"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.85
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="HP" type="ProgressBar" parent="Members/Leader/Leader"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.5
+theme_override_styles/background = SubResource("StyleBoxEmpty_xk142")
+theme_override_styles/fill = SubResource("StyleBoxFlat_16b5a")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="MP" type="ProgressBar" parent="Members/Leader/Leader"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.5
+theme_override_styles/background = SubResource("StyleBoxEmpty_fb267")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bus5h")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="HoverStats" type="VBoxContainer" parent="Members/Leader"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_right = 0.8
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="HP" type="Label" parent="Members/Leader/HoverStats"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_o8n8f")
+text = "HP: 50/100"
+label_settings = SubResource("LabelSettings_xtkta")
+
+[node name="MP" type="Label" parent="Members/Leader/HoverStats"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_exe2g")
+text = "MP: 50/100"
+label_settings = SubResource("LabelSettings_8oaxq")
+
+[node name="Member0" type="TextureButton" parent="Members"]
+layout_mode = 2
+texture_normal = ExtResource("2_svyy8")
+stretch_mode = 3
+
+[node name="Leader" type="HBoxContainer" parent="Members/Member0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.85
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="HP" type="ProgressBar" parent="Members/Member0/Leader"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.5
+theme_override_styles/background = SubResource("StyleBoxEmpty_xk142")
+theme_override_styles/fill = SubResource("StyleBoxFlat_16b5a")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="MP" type="ProgressBar" parent="Members/Member0/Leader"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.5
+theme_override_styles/background = SubResource("StyleBoxEmpty_fb267")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bus5h")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="HoverStats" type="VBoxContainer" parent="Members/Member0"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_right = 0.8
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="HP" type="Label" parent="Members/Member0/HoverStats"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_o8n8f")
+text = "HP: 50/100"
+label_settings = SubResource("LabelSettings_xtkta")
+
+[node name="MP" type="Label" parent="Members/Member0/HoverStats"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_exe2g")
+text = "MP: 50/100"
+label_settings = SubResource("LabelSettings_8oaxq")
+
+[node name="Member1" type="TextureButton" parent="Members"]
+layout_mode = 2
+texture_normal = ExtResource("3_6qwrr")
+stretch_mode = 3
+
+[node name="Leader" type="HBoxContainer" parent="Members/Member1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.85
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="HP" type="ProgressBar" parent="Members/Member1/Leader"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.5
+theme_override_styles/background = SubResource("StyleBoxEmpty_xk142")
+theme_override_styles/fill = SubResource("StyleBoxFlat_16b5a")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="MP" type="ProgressBar" parent="Members/Member1/Leader"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.5
+theme_override_styles/background = SubResource("StyleBoxEmpty_fb267")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bus5h")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="HoverStats" type="VBoxContainer" parent="Members/Member1"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_right = 0.8
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="HP" type="Label" parent="Members/Member1/HoverStats"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_o8n8f")
+text = "HP: 50/100"
+label_settings = SubResource("LabelSettings_xtkta")
+
+[node name="MP" type="Label" parent="Members/Member1/HoverStats"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_exe2g")
+text = "MP: 50/100"
+label_settings = SubResource("LabelSettings_8oaxq")
+
+[node name="Member2" type="TextureButton" parent="Members"]
+layout_mode = 2
+texture_normal = ExtResource("4_0p363")
+stretch_mode = 3
+
+[node name="Leader" type="HBoxContainer" parent="Members/Member2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.85
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="HP" type="ProgressBar" parent="Members/Member2/Leader"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.5
+theme_override_styles/background = SubResource("StyleBoxEmpty_xk142")
+theme_override_styles/fill = SubResource("StyleBoxFlat_16b5a")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="MP" type="ProgressBar" parent="Members/Member2/Leader"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.5
+theme_override_styles/background = SubResource("StyleBoxEmpty_fb267")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bus5h")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="HoverStats" type="VBoxContainer" parent="Members/Member2"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_right = 0.8
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="HP" type="Label" parent="Members/Member2/HoverStats"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_o8n8f")
+text = "HP: 50/100"
+label_settings = SubResource("LabelSettings_xtkta")
+
+[node name="MP" type="Label" parent="Members/Member2/HoverStats"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_exe2g")
+text = "MP: 50/100"
+label_settings = SubResource("LabelSettings_8oaxq")
+
+[node name="PortraitArea" type="Area2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortraitArea"]
+shape = SubResource("RectangleShape2D_62oq4")
+
+[connection signal="mouse_entered" from="Members/Leader" to="." method="_on_portrait_mouse_entered"]
+[connection signal="mouse_exited" from="Members/Leader" to="." method="_on_portrait_mouse_exited"]
+[connection signal="mouse_entered" from="Members/Member0" to="." method="_on_portrait_mouse_entered"]
+[connection signal="mouse_exited" from="Members/Member0" to="." method="_on_portrait_mouse_exited"]
+[connection signal="mouse_entered" from="Members/Member1" to="." method="_on_portrait_mouse_entered"]
+[connection signal="mouse_exited" from="Members/Member1" to="." method="_on_portrait_mouse_exited"]
+[connection signal="mouse_entered" from="Members/Member2" to="." method="_on_portrait_mouse_entered"]
+[connection signal="mouse_exited" from="Members/Member2" to="." method="_on_portrait_mouse_exited"]
+[connection signal="area_entered" from="PortraitArea" to="." method="_on_portrait_area_area_entered"]
+[connection signal="area_exited" from="PortraitArea" to="." method="_on_portrait_area_area_exited"]
