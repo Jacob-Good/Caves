@@ -23,21 +23,13 @@ func _process(_delta):
 
 func _on_portrait_mouse_entered():
 	
-	print("Mouse Detected")
-	
-	var mousePos = get_viewport().get_mouse_position()
-	print(mousePos)
-	
+	var mousePos = get_global_mouse_position()
 	
 	for node in portrait_targets:
 		if node.get_global_rect().has_point(mousePos):
 			target_portrait = node
 			break
-	
-	
 	target_portrait.get_child(1).visible = true
-	
-	
 
 
 func _on_portrait_mouse_exited():

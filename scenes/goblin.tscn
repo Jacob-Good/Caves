@@ -19,22 +19,24 @@ animations = [{
 "speed": 2.0
 }]
 
-[sub_resource type="Resource" id="Resource_csdyd"]
+[sub_resource type="Resource" id="Resource_wf35x"]
+resource_local_to_scene = true
 script = ExtResource("4_ne5g1")
-portrait = "res://images/char_portraits/05.png"
-name = "Gobbo Pantakin"
-health = 12
-mana = 3
-stamina = 5
+name = "Goblin"
+health = 10
+mana = 10
+stamina = 10
 strength = 2
-dexterity = 4
-intelligence = 1
+dexterity = 2
+intelligence = 2
 charisma = 2
 defense = 2
 spells = {}
+portrait_path = "res://images/char_portraits/05.png"
+interactable = false
 
-[node name="Goblin" type="AnimatedSprite2D"]
+[node name="Goblin" type="AnimatedSprite2D" groups=["Entity"]]
 sprite_frames = SubResource("SpriteFrames_06kg1")
 frame_progress = 0.223788
 script = ExtResource("3_5mkew")
-npc_data = SubResource("Resource_csdyd")
+data = SubResource("Resource_wf35x")

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_wqwtp")
-player_name = ""
+player_name = "Jacob Good"
 health = 0
 mana = 0
 stamina = 0

@@ -1,13 +1,95 @@
-[gd_scene load_steps=9 format=3 uid="uid://dchl4rysvuw3g"]
+[gd_scene load_steps=16 format=3 uid="uid://dchl4rysvuw3g"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_klj2i"]
 [ext_resource type="PackedScene" uid="uid://cpsm2hh7f2uqw" path="res://scenes/main_menu.tscn" id="2_am6lq"]
 [ext_resource type="PackedScene" uid="uid://cvsshpthpn3c4" path="res://scenes/map.tscn" id="3_cjfsj"]
 [ext_resource type="PackedScene" uid="uid://djrq0k1oiyg5t" path="res://scenes/player.tscn" id="4_bu3k2"]
 [ext_resource type="PackedScene" uid="uid://cpqqvfhyicaj6" path="res://scenes/npc.tscn" id="5_suhj5"]
+[ext_resource type="Script" path="res://scripts/npc_data.gd" id="6_8j2fs"]
 [ext_resource type="PackedScene" uid="uid://c5gt1g41ileb4" path="res://scenes/goblin.tscn" id="6_huyri"]
 [ext_resource type="Script" path="res://scenes/camera.gd" id="6_p8e2s"]
 [ext_resource type="PackedScene" uid="uid://drq57yvxw7fhh" path="res://scenes/party_ui.tscn" id="7_iacxm"]
+[ext_resource type="PackedScene" uid="uid://ckcix3ll5klfh" path="res://scenes/inspect_window.tscn" id="10_ttawe"]
+
+[sub_resource type="Resource" id="Resource_ei177"]
+resource_local_to_scene = true
+script = ExtResource("6_8j2fs")
+name = "John"
+health = 10
+mana = 10
+stamina = 10
+strength = 2
+dexterity = 2
+intelligence = 2
+charisma = 2
+defense = 2
+spells = {}
+portrait_path = "res://images/char_portraits/00.png"
+interactable = true
+
+[sub_resource type="Resource" id="Resource_72orj"]
+resource_local_to_scene = true
+script = ExtResource("6_8j2fs")
+name = "Sam"
+health = 10
+mana = 10
+stamina = 10
+strength = 2
+dexterity = 2
+intelligence = 2
+charisma = 2
+defense = 2
+spells = {}
+portrait_path = "res://images/char_portraits/00.png"
+interactable = true
+
+[sub_resource type="Resource" id="Resource_il7sb"]
+resource_local_to_scene = true
+script = ExtResource("6_8j2fs")
+name = "Steven"
+health = 10
+mana = 10
+stamina = 10
+strength = 2
+dexterity = 2
+intelligence = 2
+charisma = 2
+defense = 2
+spells = {}
+portrait_path = "res://images/char_portraits/00.png"
+interactable = true
+
+[sub_resource type="Resource" id="Resource_vabgt"]
+resource_local_to_scene = true
+script = ExtResource("6_8j2fs")
+name = "Jaxson"
+health = 10
+mana = 10
+stamina = 10
+strength = 2
+dexterity = 2
+intelligence = 2
+charisma = 2
+defense = 2
+spells = {}
+portrait_path = "res://images/char_portraits/00.png"
+interactable = true
+
+[sub_resource type="Resource" id="Resource_0gnv8"]
+resource_local_to_scene = true
+script = ExtResource("6_8j2fs")
+name = "Goblin"
+health = 10
+mana = 10
+stamina = 10
+strength = 2
+dexterity = 2
+intelligence = 2
+charisma = 2
+defense = 2
+spells = {}
+portrait_path = "res://images/char_portraits/05.png"
+interactable = false
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_klj2i")
@@ -18,23 +100,32 @@ visible = false
 [node name="Map" parent="." instance=ExtResource("3_cjfsj")]
 
 [node name="Player" parent="." instance=ExtResource("4_bu3k2")]
-position = Vector2(1224, 600)
+position = Vector2(1224, 609)
 
 [node name="NPCs" type="Node2D" parent="."]
 
 [node name="NPC" parent="NPCs" instance=ExtResource("5_suhj5")]
 position = Vector2(-359, -672)
+data = SubResource("Resource_ei177")
 
 [node name="NPC2" parent="NPCs" instance=ExtResource("5_suhj5")]
-position = Vector2(-311, -297)
+position = Vector2(-311, -289)
+data = SubResource("Resource_72orj")
 
 [node name="NPC3" parent="NPCs" instance=ExtResource("5_suhj5")]
-position = Vector2(-22, -679)
+position = Vector2(-22, -671)
+data = SubResource("Resource_il7sb")
+
+[node name="NPC4" parent="NPCs" instance=ExtResource("5_suhj5")]
+position = Vector2(1368, 480)
+data = SubResource("Resource_vabgt")
 
 [node name="Beasts" type="Node2D" parent="."]
 
 [node name="Goblin" parent="Beasts" instance=ExtResource("6_huyri")]
-position = Vector2(-985, -168)
+position = Vector2(-985, -160)
+autoplay = "default"
+data = SubResource("Resource_0gnv8")
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(960, 540)
@@ -45,5 +136,10 @@ offset_left = -897.0
 offset_top = -263.0
 offset_right = -897.0
 offset_bottom = -256.4
+
+[node name="InspectWindow" parent="." instance=ExtResource("10_ttawe")]
+visible = false
+
+[node name="Containers" type="Node2D" parent="."]
 
 [connection signal="visibility_changed" from="Player" to="Player" method="_on_visibility_changed"]

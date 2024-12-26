@@ -19,23 +19,25 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="Resource" id="Resource_csdyd"]
+[sub_resource type="Resource" id="Resource_in70j"]
+resource_local_to_scene = true
 script = ExtResource("4_ntcme")
-portrait = "res://images/char_portraits/05.png"
-name = "Gobbo Pantakin"
-health = 12
-mana = 3
-stamina = 5
+name = ""
+health = 10
+mana = 10
+stamina = 10
 strength = 2
-dexterity = 4
-intelligence = 1
+dexterity = 2
+intelligence = 2
 charisma = 2
 defense = 2
 spells = {}
+portrait_path = "res://images/char_portraits/00.png"
+interactable = false
 
-[node name="NPC" type="AnimatedSprite2D"]
+[node name="NPC" type="AnimatedSprite2D" groups=["Entity"]]
 sprite_frames = SubResource("SpriteFrames_sntga")
 autoplay = "default"
 frame_progress = 0.655974
 script = ExtResource("3_oiof0")
-npc_data = SubResource("Resource_csdyd")
+data = SubResource("Resource_in70j")

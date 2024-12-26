@@ -1,0 +1,142 @@
+[gd_scene load_steps=3 format=3 uid="uid://brbca7qeny7kl"]
+
+[ext_resource type="Script" path="res://scenes/container_window.gd" id="1_uwufo"]
+[ext_resource type="Texture2D" uid="uid://bi2m5c1h5qboi" path="res://images/ui/inventory_ph.png" id="2_2uad3"]
+
+[node name="ContainerWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 947.0
+offset_top = 229.0
+offset_right = 1247.0
+offset_bottom = 629.0
+script = ExtResource("1_uwufo")
+
+[node name="OuterBorder" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="OuterBorder"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_right = 80.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Container"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 22.0
+offset_right = 292.0
+offset_bottom = 393.0
+texture = ExtResource("2_2uad3")
+stretch_mode = 2
+
+[node name="Slot0" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 15.0
+offset_top = 13.0
+offset_right = 90.0
+offset_bottom = 88.0
+
+[node name="Slot1" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 103.0
+offset_top = 13.0
+offset_right = 178.0
+offset_bottom = 88.0
+
+[node name="Slot2" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 195.0
+offset_top = 14.0
+offset_right = 270.0
+offset_bottom = 89.0
+
+[node name="Slot3" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 14.0
+offset_top = 101.0
+offset_right = 89.0
+offset_bottom = 176.0
+
+[node name="Slot4" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 104.0
+offset_top = 102.0
+offset_right = 179.0
+offset_bottom = 177.0
+
+[node name="Slot5" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 194.0
+offset_top = 103.0
+offset_right = 269.0
+offset_bottom = 178.0
+
+[node name="Slot6" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 15.0
+offset_top = 192.0
+offset_right = 90.0
+offset_bottom = 267.0
+
+[node name="Slot7" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 103.0
+offset_top = 191.0
+offset_right = 178.0
+offset_bottom = 266.0
+
+[node name="Slot8" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 195.0
+offset_top = 191.0
+offset_right = 270.0
+offset_bottom = 266.0
+
+[node name="Slot9" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 281.0
+offset_right = 88.0
+offset_bottom = 356.0
+
+[node name="Slot10" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 104.0
+offset_top = 281.0
+offset_right = 179.0
+offset_bottom = 356.0
+
+[node name="Slot11" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 194.0
+offset_top = 282.0
+offset_right = 269.0
+offset_bottom = 357.0
+
+[connection signal="gui_input" from="OuterBorder" to="." method="_on_outer_border_gui_input"]

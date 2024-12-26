@@ -2,8 +2,6 @@ extends CanvasLayer
 
 @onready var flashing_label = $Control/Label
 
-var flashing : bool = true
-
 func _on_timer_timeout():
 	if flashing_label.visible == true:
 		flashing_label.visible = false
@@ -17,4 +15,4 @@ func start_flashing():
 func stop_flashing():
 	$FlashingTimer.stop()
 	flashing_label.visible = false
-	flashing = false
+	Global.flashing = false
