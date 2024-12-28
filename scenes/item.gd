@@ -1,6 +1,6 @@
 extends TextureRect
 
-@export var data : ItemData
+#@export var data : ItemData
 
 
 func _ready():
