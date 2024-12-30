@@ -1,3 +1,4 @@
+Button
 TextureRect
 Node2D
 HSeparator
@@ -6,7 +7,6 @@ GridContainer
 Label
 Control
 Window
-Button
 CanvasLayer
 HBoxContainer
 VBoxContainer

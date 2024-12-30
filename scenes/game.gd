@@ -83,8 +83,13 @@ func object_interact(tile:TileData, coords:Vector2i):
 			$InspectWindow.update_window(coords)
 			
 		"chest":
+			var contents : Array
+			print(Global.vector_to_string(coords))
+			contents = Global.chests[Global.vector_to_string(coords)]["inventory"].duplicate()
+			print(contents)
 			var container = container_scene.instantiate() as Control
 			container.position = object_map.map_to_local(coords)
+			container.populate_items(contents)
 			$Containers.add_child(container)
 			
 			
