@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://beak10rg8452t" path="res://scenes/item.tscn" id="3_di72b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8gqu"]
-size = Vector2(262, 351)
+size = Vector2(440, 529)
 
 [node name="ContainerWindow" type="Control"]
 layout_mode = 3

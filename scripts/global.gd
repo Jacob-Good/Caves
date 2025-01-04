@@ -72,3 +72,5 @@ var items : Dictionary = {
 	29: {"name": "", "type": "", "desc": "", "value": 0, "weight": 0, "damage": 0, "defense": 0, "max_dur": 0, "cur_dur": 0, "range": 0, "texture": ""},
 	30: {"name": "", "type": "", "desc": "", "value": 0, "weight": 0, "damage": 0, "defense": 0, "max_dur": 0, "cur_dur": 0, "range": 0, "texture": ""},
 }
+
+var player_inventory : Array

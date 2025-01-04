@@ -1,0 +1,462 @@
+[gd_scene load_steps=5 format=3 uid="uid://j7yqnx4i5hqe"]
+
+[ext_resource type="Script" path="res://scenes/inventory_window.gd" id="1_03mx2"]
+[ext_resource type="Texture2D" uid="uid://dwrtrxqx0ob60" path="res://images/ui/big_inventory.png" id="1_ajcng"]
+[ext_resource type="PackedScene" uid="uid://beak10rg8452t" path="res://scenes/item.tscn" id="2_iey62"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8gqu"]
+size = Vector2(440, 529)
+
+[node name="InventoryWindow" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 947.0
+offset_top = 229.0
+offset_right = 1424.0
+offset_bottom = 808.0
+script = ExtResource("1_03mx2")
+
+[node name="OuterBorder" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="OuterBorder"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_right = 80.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Container"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemSlots" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 22.0
+offset_right = 292.0
+offset_bottom = 393.0
+texture = ExtResource("1_ajcng")
+stretch_mode = 2
+
+[node name="Item0" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 15.0
+offset_top = 14.0
+offset_right = 90.0
+offset_bottom = 89.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item1" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 105.0
+offset_top = 15.0
+offset_right = 180.0
+offset_bottom = 90.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item2" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 194.0
+offset_top = 13.0
+offset_right = 269.0
+offset_bottom = 88.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item3" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 283.0
+offset_top = 13.0
+offset_right = 358.0
+offset_bottom = 88.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item4" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 373.0
+offset_top = 12.0
+offset_right = 448.0
+offset_bottom = 87.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item5" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 15.0
+offset_top = 103.0
+offset_right = 90.0
+offset_bottom = 178.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item6" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 105.0
+offset_top = 101.0
+offset_right = 180.0
+offset_bottom = 176.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item7" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 195.0
+offset_top = 102.0
+offset_right = 270.0
+offset_bottom = 177.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item8" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 282.0
+offset_top = 102.0
+offset_right = 357.0
+offset_bottom = 177.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item9" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 372.0
+offset_top = 103.0
+offset_right = 447.0
+offset_bottom = 178.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item10" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 14.0
+offset_top = 192.0
+offset_right = 89.0
+offset_bottom = 267.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item11" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 104.0
+offset_top = 192.0
+offset_right = 179.0
+offset_bottom = 267.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item12" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 195.0
+offset_top = 191.0
+offset_right = 270.0
+offset_bottom = 266.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item13" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 282.0
+offset_top = 193.0
+offset_right = 357.0
+offset_bottom = 268.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item14" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 372.0
+offset_top = 192.0
+offset_right = 447.0
+offset_bottom = 267.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item15" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 16.0
+offset_top = 282.0
+offset_right = 91.0
+offset_bottom = 357.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item16" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 106.0
+offset_top = 283.0
+offset_right = 181.0
+offset_bottom = 358.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item17" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 195.0
+offset_top = 281.0
+offset_right = 270.0
+offset_bottom = 356.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item18" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 284.0
+offset_top = 281.0
+offset_right = 359.0
+offset_bottom = 356.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item19" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 374.0
+offset_top = 280.0
+offset_right = 449.0
+offset_bottom = 355.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item20" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 16.0
+offset_top = 371.0
+offset_right = 91.0
+offset_bottom = 446.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item21" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 106.0
+offset_top = 369.0
+offset_right = 181.0
+offset_bottom = 444.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item22" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 196.0
+offset_top = 370.0
+offset_right = 271.0
+offset_bottom = 445.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item23" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 283.0
+offset_top = 370.0
+offset_right = 358.0
+offset_bottom = 445.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item24" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 373.0
+offset_top = 371.0
+offset_right = 448.0
+offset_bottom = 446.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item25" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 15.0
+offset_top = 460.0
+offset_right = 90.0
+offset_bottom = 535.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item26" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 105.0
+offset_top = 460.0
+offset_right = 180.0
+offset_bottom = 535.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item27" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 196.0
+offset_top = 459.0
+offset_right = 271.0
+offset_bottom = 534.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item28" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 283.0
+offset_top = 461.0
+offset_right = 358.0
+offset_bottom = 536.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Item29" parent="ItemSlots" instance=ExtResource("2_iey62")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 373.0
+offset_top = 460.0
+offset_right = 448.0
+offset_bottom = 535.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="CloseButton" type="Button" parent="."]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 445.0
+offset_top = -1.0
+offset_right = 475.0
+offset_bottom = 30.0
+text = "X"
+
+[node name="InventoryArea" type="Area2D" parent="."]
+position = Vector2(148, 206)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryArea"]
+position = Vector2(91, 88.5)
+shape = SubResource("RectangleShape2D_y8gqu")
+
+[connection signal="gui_input" from="OuterBorder" to="." method="_on_outer_border_gui_input"]
+[connection signal="mouse_entered" from="ItemSlots" to="." method="_on_item_slots_mouse_entered"]
+[connection signal="mouse_exited" from="ItemSlots" to="." method="_on_item_slots_mouse_exited"]
+[connection signal="button_down" from="CloseButton" to="." method="_on_close_button_button_down"]
+[connection signal="area_entered" from="InventoryArea" to="." method="_on_inventory_area_area_entered"]
+[connection signal="area_exited" from="InventoryArea" to="." method="_on_inventory_area_area_exited"]

@@ -8,14 +8,21 @@ var adj_tiles : Array
 
 var container_coords : Vector2i
 
-var chest_contents : Array
+var player_inventory = Global.player_inventory
 
 var item_scene: PackedScene = preload("res://scenes/item.tscn")
 
+var is_open : bool = false
+
 func _process(delta):
 	
-	if adj_tiles.has(Global.player_coords) != true:
-		queue_free()
+	if Input.is_action_just_pressed("inventory"):
+		if is_open:
+			$".".visible = false
+			is_open = false
+		else:
+			$".".visible = true
+			is_open = true
 
 
 
@@ -23,7 +30,7 @@ func _process(delta):
 func _on_outer_border_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
-			$"..".move_to_front()
+			$".".move_to_front()
 			drag_pos = get_global_mouse_position() - $".".position
 		else:
 			drag_pos = null
@@ -31,32 +38,28 @@ func _on_outer_border_gui_input(event):
 	if event is InputEventMouseMotion and drag_pos:
 		$".".set_position(get_global_mouse_position() - drag_pos)
 
-func populate_items(contents : Array, coords : Vector2i, map : TileMapLayer):
-	chest_contents = contents
-	adj_tiles = Global.get_all_surrounding_cells(coords, map)
-	container_coords = coords
+func populate_items():
 	var slots : Array = $ItemSlots.get_children()
-	filled_slots = contents.size()
+	filled_slots = player_inventory.size()
 	for n in filled_slots:
-		slots[n].populate_data(contents[n])
+		slots[n].populate_data(player_inventory[n])
 		
 func basic_populate_items(contents):
-	filled_slots = contents.size()
+	filled_slots = player_inventory.size()
 	var slots : Array = $ItemSlots.get_children()
 	var num = 0
 	for n in slots:
 		print(filled_slots)
 		if num < filled_slots:
-			n.populate_data(contents[num])
-			print("Populated data for " + str(contents[num]))
+			n.populate_data(player_inventory[num])
 		else:
 			n.populate_data(00)
-			print("Populated null data")
 		num += 1
 
 
 func _on_close_button_button_down() -> void:
-	queue_free()
+	self.visible = false
+	is_open = false
 	
 
 func _on_item_slots_mouse_entered():
@@ -87,12 +90,13 @@ func _on_inventory_area_area_exited(area):
 		area.get_parent().hovering_over = null
 		
 func update_container_from(target_slot):
-	Global.chests[Global.vector_to_string(container_coords)]["inventory"].remove_at(target_slot)
-	chest_contents = Global.chests[Global.vector_to_string(container_coords)]["inventory"].duplicate()
-	basic_populate_items(chest_contents)
+	Global.player_inventory.remove_at(target_slot)
+	player_inventory = Global.player_inventory
+	basic_populate_items(player_inventory)
 	
 	
 func update_container_to(item_id):
-	Global.chests[Global.vector_to_string(container_coords)]["inventory"].append(item_id)
-	chest_contents = Global.chests[Global.vector_to_string(container_coords)]["inventory"].duplicate()
-	basic_populate_items(chest_contents)
+	Global.player_inventory.append(item_id)
+	print(player_inventory)
+	#player_inventory = Global.player_inventory
+	basic_populate_items(player_inventory)

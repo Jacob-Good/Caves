@@ -16,7 +16,7 @@ var hovering_over
 
 func _ready():
 	original_position = position
-	original_container = $".."
+	original_container = $"../.."
 	original_node_slot = self.get_index()
 	print(original_node_slot)
 
@@ -53,7 +53,7 @@ func populate_data(import):
 func _on_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
-			$"../..".move_to_front()
+			original_container.move_to_front()
 			self.move_to_front()
 			original_position = $".".position
 			drag_pos = get_global_mouse_position() - $".".position
@@ -64,14 +64,12 @@ func _on_gui_input(event):
 			if hovering_over == null or hovering_over == original_container:
 				self.position = original_position
 			else:
-				var target_slot = hovering_over.get_child(hovering_over.get_parent().filled_slots)
-				print(target_slot)
-				target_slot.populate_data(base_import_data)
-				$"..".move_child(self, original_node_slot)
-				$"../..".update_container_from(original_node_slot)
-				target_slot.get_parent().get_parent().update_container_to(base_import_data)
-				self.populate_data(00)
+				var target_container = hovering_over.get_parent()
+				print(target_container)
 				self.position = original_position
+				target_container.update_container_to(base_import_data)
+				original_container.update_container_from(original_node_slot)
+				
 				
 				
 			Global.dragging_item = false
