@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://brbca7qeny7kl"]
+[gd_scene load_steps=5 format=3 uid="uid://brbca7qeny7kl"]
 
 [ext_resource type="Script" path="res://scenes/container_window.gd" id="1_uwufo"]
 [ext_resource type="Texture2D" uid="uid://bi2m5c1h5qboi" path="res://images/ui/inventory_ph.png" id="2_2uad3"]
 [ext_resource type="PackedScene" uid="uid://beak10rg8452t" path="res://scenes/item.tscn" id="3_di72b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8gqu"]
+size = Vector2(262, 351)
 
 [node name="ContainerWindow" type="Control"]
 layout_mode = 3
@@ -209,5 +212,16 @@ offset_right = 297.0
 offset_bottom = 33.0
 text = "X"
 
+[node name="InventoryArea" type="Area2D" parent="."]
+position = Vector2(148, 206)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryArea"]
+position = Vector2(2, -0.5)
+shape = SubResource("RectangleShape2D_y8gqu")
+
 [connection signal="gui_input" from="OuterBorder" to="." method="_on_outer_border_gui_input"]
+[connection signal="mouse_entered" from="ItemSlots" to="." method="_on_item_slots_mouse_entered"]
+[connection signal="mouse_exited" from="ItemSlots" to="." method="_on_item_slots_mouse_exited"]
 [connection signal="button_down" from="CloseButton" to="." method="_on_close_button_button_down"]
+[connection signal="area_entered" from="InventoryArea" to="." method="_on_inventory_area_area_entered"]
+[connection signal="area_exited" from="InventoryArea" to="." method="_on_inventory_area_area_exited"]

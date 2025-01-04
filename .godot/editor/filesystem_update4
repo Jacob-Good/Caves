@@ -1,3 +1,7 @@
+res://scenes/container_window.gd
+res://scenes/item.tscn
+res://scenes/game.gd
+res://scenes/item.gd
 res://scenes/game.tscn
 res://scenes/map.tscn
 res://scenes/player.tscn
@@ -7,4 +11,4 @@ res://scenes/npc.tscn
 res://scenes/main_menu.tscn
 res://scenes/inspect_window.tscn
 res://scenes/container_window.tscn
-res://scenes/item.tscn
+res://scripts/global.gd

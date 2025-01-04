@@ -1,3 +1,5 @@
+CollisionShape2D
+Area2D
 Button
 TextureRect
 Node2D
@@ -10,4 +12,3 @@ Window
 CanvasLayer
 HBoxContainer
 VBoxContainer
-Node

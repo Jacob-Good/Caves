@@ -29,6 +29,9 @@ func _process(_delta):
 		
 	if Input.is_action_just_pressed("wheel down"):
 		camera.zoom -= Vector2 (.1,.1)
+		
+	if Input.is_action_just_pressed("test debug"):
+		print(Global.get_all_surrounding_cells(Global.player_coords, map))
 
 func world_turn():
 	
@@ -84,14 +87,11 @@ func object_interact(tile:TileData, coords:Vector2i):
 			
 		"chest":
 			var contents : Array
-			print(Global.vector_to_string(coords))
 			contents = Global.chests[Global.vector_to_string(coords)]["inventory"].duplicate()
-			print(contents)
 			var container = container_scene.instantiate() as Control
 			container.position = object_map.map_to_local(coords)
-			container.populate_items(contents)
+			container.populate_items(contents, coords, map)
 			$Containers.add_child(container)
-			
 			
 		"bed":
 			print("this is a bed")

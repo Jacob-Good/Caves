@@ -13,8 +13,21 @@ var main_menu : bool = false
 
 var player_coords : Vector2i
 
+var dragging_item : bool = false
+
+var item_dragged_to
+
 func vector_to_string(coord):
 	return str(coord.x) + "," + str(coord.y)
+	
+func get_all_surrounding_cells(coords : Vector2i, map : TileMapLayer) -> Array:
+	var all_tiles : Array
+	all_tiles = map.get_surrounding_cells(coords)
+	all_tiles.append(map.get_neighbor_cell(coords, TileSet.CELL_NEIGHBOR_BOTTOM_LEFT_CORNER))
+	all_tiles.append(map.get_neighbor_cell(coords, TileSet.CELL_NEIGHBOR_BOTTOM_RIGHT_CORNER))
+	all_tiles.append(map.get_neighbor_cell(coords, TileSet.CELL_NEIGHBOR_TOP_LEFT_CORNER))
+	all_tiles.append(map.get_neighbor_cell(coords, TileSet.CELL_NEIGHBOR_TOP_RIGHT_CORNER))
+	return all_tiles
 
 var chests : Dictionary = {
 	"10,13": {"type" : "Wood Chest", "state" : "open", "inventory" : [01, 02, 03]},
@@ -23,9 +36,11 @@ var chests : Dictionary = {
 	"17,4": {"type" : "Wood Chest", "state" : "open", "inventory" : [10, 11, 03]},
 	"29,1": {"type" : "Wood Chest", "state" : "open", "inventory" : [10, 05, 02]},
 	"31,1": {"type" : "Wood Chest", "state" : "open", "inventory" : [01, 11, 06]},
+	"-32,-25": {"type" : "Wood Chest", "state" : "open", "inventory" : [08, 01, 06]}
 }
 
 var items : Dictionary = {
+	00: {"name": "", "type": "", "desc": "", "value": 0, "weight": 0, "damage": 0, "defense": 0, "max_dur": 0, "cur_dur": 0, "range": 0, "texture": ""},
 	01: {"name": "Practice Sword", "type": "long blade", "desc": "A wooden sword designed for sparring and not much else. Every great fighter held one of these at some point.", "value": 1, "weight": 1, "damage": 1, "defense": 0, "range": 0, "max_dur": 5, "cur_dur": 5, "texture": "res://images/items/sword_01.png"},
 	02: {"name": "Long Sword", "type": "long blade", "desc": "Basic iron long sword. Standard issue for soldiers, guards and adventurers alike.", "value": 10, "weight": 3, "damage": 3, "defense": 1, "range": 0, "max_dur": 20, "cur_dur": 20, "texture": "res://images/items/sword_01.png"},
 	03: {"name": "Short Sword", "type": "short blade", "desc": "A short blade typically used as a side weapon or those of shorter stature.", "value": 4, "weight": 2, "damage": 2, "defense": 1, "max_dur": 15, "cur_dur": 15, "range": 0, "texture": "res://images/items/sword_01.png", "trait_01": "nimble"},

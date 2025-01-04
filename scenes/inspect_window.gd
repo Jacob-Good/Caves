@@ -107,7 +107,7 @@ func object_interact_pushed():
 
 func data_from_coord(coord):
 	target_coords = coord
-	adj_tiles = map.get_surrounding_cells(target_coords)
+	adj_tiles = Global.get_all_surrounding_cells(target_coords, map)
 	has_entity = false
 	has_object = false
 	
