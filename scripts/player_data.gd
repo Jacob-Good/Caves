@@ -2,7 +2,7 @@ extends Resource
 
 class_name PlayerData
 
-@export var player_name : String
+@export var name : String
 @export var health : int
 @export var mana : int
 @export var stamina : int
@@ -15,3 +15,7 @@ class_name PlayerData
 @export var defense : int
 
 @export var spells : Dictionary
+
+@export var portrait_path : String
+
+@export var interactable : bool

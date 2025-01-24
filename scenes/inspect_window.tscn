@@ -1,0 +1,466 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckcix3ll5klfh"]
+
+[ext_resource type="Texture2D" uid="uid://dh63yjjhwmoy7" path="res://images/char_icons/player.png" id="1_8fjfb"]
+[ext_resource type="Script" path="res://scenes/inspect_window.gd" id="1_uwl4p"]
+
+[node name="InspectWindow" type="CanvasLayer"]
+script = ExtResource("1_uwl4p")
+
+[node name="Windows" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 0.185
+anchor_bottom = 0.33
+offset_left = 165.0
+offset_top = 20.0
+offset_right = 162.8
+offset_bottom = 19.6
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="Window" type="Control" parent="Windows"]
+layout_mode = 2
+anchors_preset = 0
+offset_right = 353.0
+offset_bottom = 356.0
+size_flags_horizontal = 3
+
+[node name="OuterRect" type="ColorRect" parent="Windows/Window"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="InnerRect" type="ColorRect" parent="Windows/Window"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.03
+anchor_right = 0.975
+anchor_bottom = 0.97
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.374139, 0.374139, 0.374139, 1)
+
+[node name="EntityWindow" type="Control" parent="Windows/Window/InnerRect"]
+layout_mode = 1
+anchor_top = 0.06
+anchor_right = 1.0
+anchor_bottom = 0.5
+
+[node name="Entity" type="Label" parent="Windows/Window/InnerRect/EntityWindow"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.5
+offset_top = -20.101
+offset_right = 40.5
+offset_bottom = 2.89904
+grow_horizontal = 2
+text = "Entity
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EntityExists" type="Control" parent="Windows/Window/InnerRect/EntityWindow"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EntityTexture" type="TextureRect" parent="Windows/Window/InnerRect/EntityWindow/EntityExists"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.2
+anchor_bottom = 0.44
+offset_bottom = 6.51125
+texture = ExtResource("1_8fjfb")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Windows/Window/InnerRect/EntityWindow/EntityExists"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.04
+anchor_right = 0.885
+anchor_bottom = 0.5
+offset_bottom = 36.1928
+
+[node name="EntityName" type="Label" parent="Windows/Window/InnerRect/EntityWindow/EntityExists/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Name : Unknown"
+vertical_alignment = 1
+
+[node name="EntityInteract" type="Label" parent="Windows/Window/InnerRect/EntityWindow/EntityExists/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Can Interact: Unknown"
+vertical_alignment = 1
+
+[node name="Misc0" type="Label" parent="Windows/Window/InnerRect/EntityWindow/EntityExists/HBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Data TBD"
+vertical_alignment = 1
+
+[node name="NotAdjEnt" type="Label" parent="Windows/Window/InnerRect/EntityWindow/EntityExists"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.799
+anchor_right = 0.5
+anchor_bottom = 0.799
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+text = "You must be adjacent"
+vertical_alignment = 1
+
+[node name="EntityInteractButton" type="Button" parent="Windows/Window/InnerRect/EntityWindow/EntityExists"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -34.5
+offset_top = -31.0
+offset_right = 34.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Interact"
+
+[node name="NoEntityWindow" type="Control" parent="Windows/Window/InnerRect/EntityWindow"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Entity" type="Label" parent="Windows/Window/InnerRect/EntityWindow/NoEntityWindow"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.5
+offset_right = 40.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Object
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Notif" type="Label" parent="Windows/Window/InnerRect/EntityWindow/NoEntityWindow"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = -24.5
+offset_right = 31.5
+offset_bottom = -1.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "No Entity
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Object" type="Control" parent="Windows/Window/InnerRect"]
+layout_mode = 1
+anchor_top = 0.52
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ObjectExists" type="Control" parent="Windows/Window/InnerRect/Object"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Object" type="Label" parent="Windows/Window/InnerRect/Object/ObjectExists"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.5
+offset_right = 40.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Object
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ObjectTexture" type="TextureRect" parent="Windows/Window/InnerRect/Object/ObjectExists"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.2
+anchor_bottom = 0.44
+offset_bottom = 1.285
+texture = ExtResource("1_8fjfb")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Windows/Window/InnerRect/Object/ObjectExists"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.15
+anchor_right = 0.885
+anchor_bottom = 0.5
+offset_bottom = 47.7173
+
+[node name="ObjectName" type="Label" parent="Windows/Window/InnerRect/Object/ObjectExists/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Name : Unknown"
+vertical_alignment = 1
+
+[node name="ObjectInteract" type="Label" parent="Windows/Window/InnerRect/Object/ObjectExists/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Can Interact: Unknown"
+vertical_alignment = 1
+
+[node name="Misc0" type="Label" parent="Windows/Window/InnerRect/Object/ObjectExists/HBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Data TBD"
+vertical_alignment = 1
+
+[node name="ObjectInteractButton" type="Button" parent="Windows/Window/InnerRect/Object/ObjectExists"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -34.5
+offset_top = -31.0
+offset_right = 34.5
+offset_bottom = 1.52588e-05
+grow_horizontal = 2
+grow_vertical = 0
+text = "Interact"
+
+[node name="NotAdjObj" type="Label" parent="Windows/Window/InnerRect/Object"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.799
+anchor_right = 0.5
+anchor_bottom = 0.799
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+text = "You must be adjacent"
+vertical_alignment = 1
+
+[node name="NoObjectWindow" type="Control" parent="Windows/Window/InnerRect/Object"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Object" type="Label" parent="Windows/Window/InnerRect/Object/NoObjectWindow"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.5
+offset_right = 40.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Object
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Notif" type="Label" parent="Windows/Window/InnerRect/Object/NoObjectWindow"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = -11.5
+offset_right = 40.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "No Object
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MidRect" type="ColorRect" parent="Windows/Window/InnerRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.52
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TerrainOpen" type="Button" parent="Windows/Window/InnerRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Terrain >>>"
+
+[node name="Close" type="Button" parent="Windows"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.892
+anchor_top = 0.032
+anchor_right = 0.897
+anchor_bottom = 0.116
+offset_left = -1.4176
+offset_top = -0.404801
+offset_right = -0.544037
+offset_bottom = -5.332
+theme_override_font_sizes/font_size = 15
+text = "X"
+
+[node name="TerrainWindow" type="Control" parent="Windows"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+anchors_preset = 0
+offset_left = 357.0
+offset_right = 710.0
+offset_bottom = 356.0
+size_flags_horizontal = 3
+
+[node name="OuterRect" type="ColorRect" parent="Windows/TerrainWindow"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="InnerRect" type="ColorRect" parent="Windows/TerrainWindow"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.03
+anchor_right = 0.975
+anchor_bottom = 0.97
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.374139, 0.374139, 0.374139, 1)
+
+[node name="Label" type="Label" parent="Windows/TerrainWindow/InnerRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+text = "Terrain"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TerrainTexture" type="TextureRect" parent="Windows/TerrainWindow/InnerRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.25
+anchor_bottom = 0.315
+texture = ExtResource("1_8fjfb")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Windows/TerrainWindow/InnerRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.075
+anchor_right = 0.885
+anchor_bottom = 0.5
+
+[node name="TerrainType" type="Label" parent="Windows/TerrainWindow/InnerRect/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Type : Unknown"
+vertical_alignment = 1
+
+[node name="CanTraverse" type="Label" parent="Windows/TerrainWindow/InnerRect/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Can Traverse: Unknown"
+vertical_alignment = 1
+
+[node name="Misc0" type="Label" parent="Windows/TerrainWindow/InnerRect/HBoxContainer"]
+layout_mode = 2
+text = "Data TBD"
+vertical_alignment = 1
+
+[node name="Misc1" type="Label" parent="Windows/TerrainWindow/InnerRect/HBoxContainer"]
+layout_mode = 2
+text = "Data TBD"
+vertical_alignment = 1
+
+[node name="TerrainClose" type="Button" parent="Windows/TerrainWindow/InnerRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 96.0
+grow_vertical = 0
+text = "<<< Terrain"
+
+[connection signal="pressed" from="Windows/Window/InnerRect/EntityWindow/EntityExists/EntityInteractButton" to="." method="entity_interact_pushed"]
+[connection signal="pressed" from="Windows/Window/InnerRect/Object/ObjectExists/ObjectInteractButton" to="." method="object_interact_pushed"]
+[connection signal="pressed" from="Windows/Window/InnerRect/TerrainOpen" to="." method="open_terrain"]
+[connection signal="pressed" from="Windows/Close" to="." method="close_window"]
+[connection signal="pressed" from="Windows/TerrainWindow/InnerRect/TerrainClose" to="." method="close_terrain"]

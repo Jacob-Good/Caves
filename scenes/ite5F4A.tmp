@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://beak10rg8452t"]
+
+[ext_resource type="Script" path="res://scenes/item.gd" id="1_j0dpq"]
+[ext_resource type="Script" path="res://scripts/item_data.gd" id="2_hqo7j"]
+
+[sub_resource type="Resource" id="Resource_qhnbp"]
+script = ExtResource("2_hqo7j")
+name = ""
+type = ""
+desc = ""
+value = 0
+weight = 0
+damage = 0
+defense = 0
+range = 0
+max_dur = 0
+cur_dur = 0
+trait_01 = ""
+trait_02 = ""
+trait_03 = ""
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsf4x"]
+size = Vector2(74, 74)
+
+[node name="Item" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j0dpq")
+data = SubResource("Resource_qhnbp")
+
+[node name="ItemArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemArea"]
+position = Vector2(37, 37)
+shape = SubResource("RectangleShape2D_vsf4x")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
