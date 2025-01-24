@@ -14,15 +14,22 @@ var item_scene: PackedScene = preload("res://scenes/item.tscn")
 
 var is_open : bool = false
 
+func _ready():
+	$InventoryArea.monitoring = false
+
+
+
 func _process(delta):
 	
 	if Input.is_action_just_pressed("inventory"):
 		if is_open:
 			$".".visible = false
 			is_open = false
+			$InventoryArea.monitoring = false
 		else:
 			$".".visible = true
 			is_open = true
+			$InventoryArea.monitoring = true
 
 
 
@@ -83,11 +90,17 @@ func revert_item(target : TextureRect):
 
 func _on_inventory_area_area_entered(area):
 	if "is_item" in area.get_parent():
-		area.get_parent().hovering_over = $ItemSlots
+		area.get_parent().hovering_over = $"."
+		
+	if "is_player" in area.get_parent():
+		$".".set("modulate", Color(1,1,1,.3))
 
 func _on_inventory_area_area_exited(area):
 	if "is_item" in area.get_parent():
 		area.get_parent().hovering_over = null
+		
+	if "is_player" in area.get_parent():
+		$".".set("modulate", Color(1,1,1,1))
 		
 func update_container_from(target_slot):
 	Global.player_inventory.remove_at(target_slot)
@@ -97,6 +110,12 @@ func update_container_from(target_slot):
 	
 func update_container_to(item_id):
 	Global.player_inventory.append(item_id)
-	print(player_inventory)
+	print("player inventory updated" + str(player_inventory))
 	#player_inventory = Global.player_inventory
 	basic_populate_items(player_inventory)
+	
+func move_container_to_front():
+	self.move_to_front()
+	
+func shift_container(shift):
+	global_position = global_position - shift

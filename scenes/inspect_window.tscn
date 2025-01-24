@@ -8,12 +8,12 @@ script = ExtResource("1_uwl4p")
 
 [node name="Windows" type="Control" parent="."]
 layout_mode = 3
-anchor_right = 0.37
+anchor_right = 0.185
 anchor_bottom = 0.33
 offset_left = 165.0
 offset_top = 20.0
-offset_right = 165.0
-offset_bottom = 20.0
+offset_right = 162.8
+offset_bottom = 19.6
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
@@ -353,7 +353,23 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Terrain >>>"
 
+[node name="Close" type="Button" parent="Windows"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.892
+anchor_top = 0.032
+anchor_right = 0.897
+anchor_bottom = 0.116
+offset_left = -1.4176
+offset_top = -0.404801
+offset_right = -0.544037
+offset_bottom = -5.332
+theme_override_font_sizes/font_size = 15
+text = "X"
+
 [node name="TerrainWindow" type="Control" parent="Windows"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 anchors_preset = 0
@@ -443,23 +459,8 @@ offset_right = 96.0
 grow_vertical = 0
 text = "<<< Terrain"
 
-[node name="Close" type="Button" parent="Windows"]
-custom_minimum_size = Vector2(30, 30)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.444
-anchor_top = 0.032
-anchor_right = 0.485
-anchor_bottom = 0.116
-offset_left = -1.4176
-offset_top = -0.404801
-offset_right = -0.544037
-offset_bottom = -5.332
-theme_override_font_sizes/font_size = 15
-text = "X"
-
 [connection signal="pressed" from="Windows/Window/InnerRect/EntityWindow/EntityExists/EntityInteractButton" to="." method="entity_interact_pushed"]
 [connection signal="pressed" from="Windows/Window/InnerRect/Object/ObjectExists/ObjectInteractButton" to="." method="object_interact_pushed"]
 [connection signal="pressed" from="Windows/Window/InnerRect/TerrainOpen" to="." method="open_terrain"]
-[connection signal="pressed" from="Windows/TerrainWindow/InnerRect/TerrainClose" to="." method="close_terrain"]
 [connection signal="pressed" from="Windows/Close" to="." method="close_window"]
+[connection signal="pressed" from="Windows/TerrainWindow/InnerRect/TerrainClose" to="." method="close_terrain"]

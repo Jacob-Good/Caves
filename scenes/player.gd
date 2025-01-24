@@ -30,7 +30,16 @@ func _process(_delta):
 	if Input.is_action_just_pressed("right"):
 		move(Vector2.RIGHT)
 		
+	# Input to move the camera to the players current position.
 	if Input.is_action_just_pressed("focus map"):
+		
+		var shift : Vector2 = camera.position - global_position
+		
+		var windows : Array = $"../Containers".get_children()
+		windows.append($"../InventoryWindow")
+		for n in windows:
+			n.shift_container(shift)
+		
 		camera.position = global_position
 		
 	if turn_taken == true:
@@ -38,6 +47,7 @@ func _process(_delta):
 		turn_taken = false
 		
 		
+# Called everytime the player inputs a move command
 func move(direction : Vector2):
 	# Get current map vactor 2i
 	var current_tile : Vector2i = map.local_to_map(global_position)
@@ -45,25 +55,13 @@ func move(direction : Vector2):
 	var target_tile : Vector2i = Vector2i(
 		current_tile.x + direction.x, current_tile.y + direction.y
 	)
-	#get custome data layer on tile (Currently obsolete by game function, may remove later)
-	#var tile_data : TileData = map.get_cell_tile_data(target_tile)
-	#var object_tile_data : TileData = object_map.get_cell_tile_data(target_tile)
+
 	
 	if game.is_tile_walkable(target_tile) == false:
 		end()
 		return
 	
-	
-	
-	# Currently obsolete by game function, may remove later
-	#if tile_data.get_custom_data("walkable") == false or object_tile_data.get_custom_data("walkable") == false:
-	#	end()
-	#	return
-		
-	#if Global.occupied_tiles.has(str(target_tile)):
-	#	end()
-	#	return
-		
+
 	#move player
 	global_position = map.map_to_local(target_tile)
 	Global.occupied_tiles[str(target_tile)] = self
@@ -88,11 +86,22 @@ func _on_screen_exited():
 	var x : float = position_difference.x / window_size.x
 	var y : float = position_difference.y / window_size.y
 	
+	var windows = $"../Containers".get_children()
+	windows.append($"../InventoryWindow")
+	
 	if x > .5:
 		camera.position.x += window_size.x
+		for n in windows:
+			n.shift_container(Vector2 (window_size.x * -1, 0))
 	if x < -.5:
 		camera.position.x -= window_size.x
+		for n in windows:
+			n.shift_container(Vector2 (window_size.x, 0))
 	if y > .5:
 		camera.position.y += window_size.y
+		for n in windows:
+			n.shift_container(Vector2 (0, window_size.y * -1))
 	if y < -.5:
 		camera.position.y -= window_size.y
+		for n in windows:
+			n.shift_container(Vector2 (0, window_size.y))

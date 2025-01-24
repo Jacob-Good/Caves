@@ -86,12 +86,14 @@ func close_window():
 func open_terrain():
 	%TerrainOpen.visible = false
 	%TerrainClose.visible = true
-	$Windows/TerrainWindow.visible = true
+	%TerrainWindow.visible = true
+	%TerrainWindow.mouse_filter = Control.MOUSE_FILTER_STOP
 	
 func close_terrain():
 	%TerrainOpen.visible = true
 	%TerrainClose.visible = false
-	$Windows/TerrainWindow.visible = false
+	%TerrainWindow.visible = false
+	%TerrainWindow.mouse_filter = Control.MOUSE_FILTER_PASS
 	
 func entity_interact_pushed():
 	pass

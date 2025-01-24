@@ -23,7 +23,7 @@ func _process(delta):
 func _on_outer_border_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
-			$"..".move_to_front()
+			move_container_to_front()
 			drag_pos = get_global_mouse_position() - $".".position
 		else:
 			drag_pos = null
@@ -45,7 +45,7 @@ func basic_populate_items(contents):
 	var slots : Array = $ItemSlots.get_children()
 	var num = 0
 	for n in slots:
-		print(filled_slots)
+		print("basic populate items func" + str(filled_slots))
 		if num < filled_slots:
 			n.populate_data(contents[num])
 			print("Populated data for " + str(contents[num]))
@@ -80,7 +80,7 @@ func revert_item(target : TextureRect):
 
 func _on_inventory_area_area_entered(area):
 	if "is_item" in area.get_parent():
-		area.get_parent().hovering_over = $ItemSlots
+		area.get_parent().hovering_over = $"."
 
 func _on_inventory_area_area_exited(area):
 	if "is_item" in area.get_parent():
@@ -96,3 +96,10 @@ func update_container_to(item_id):
 	Global.chests[Global.vector_to_string(container_coords)]["inventory"].append(item_id)
 	chest_contents = Global.chests[Global.vector_to_string(container_coords)]["inventory"].duplicate()
 	basic_populate_items(chest_contents)
+	
+func move_container_to_front():
+	self.move_to_front()
+	$"..".move_to_front()
+
+func shift_container(shift):
+	global_position = global_position - shift

@@ -101,7 +101,7 @@ visible = false
 [node name="Map" parent="." instance=ExtResource("3_cjfsj")]
 
 [node name="Player" parent="." instance=ExtResource("4_bu3k2")]
-position = Vector2(1224, 609)
+position = Vector2(1463, 98)
 
 [node name="NPCs" type="Node2D" parent="."]
 

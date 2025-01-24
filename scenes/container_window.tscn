@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://beak10rg8452t" path="res://scenes/item.tscn" id="3_di72b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8gqu"]
-size = Vector2(440, 529)
+size = Vector2(273, 362)
 
 [node name="ContainerWindow" type="Control"]
 layout_mode = 3
@@ -216,7 +216,7 @@ text = "X"
 position = Vector2(148, 206)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryArea"]
-position = Vector2(2, -0.5)
+position = Vector2(1.5, 0)
 shape = SubResource("RectangleShape2D_y8gqu")
 
 [connection signal="gui_input" from="OuterBorder" to="." method="_on_outer_border_gui_input"]

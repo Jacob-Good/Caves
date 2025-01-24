@@ -8,7 +8,7 @@ extends Node2D
 var container_scene: PackedScene = preload("res://scenes/container_window.tscn")
 
 func _ready():
-	$MainMenu.start_flashing()
+	$MainMenu.start_flashing() # Disabled because we are skipping the main menu
 
 	
 func _process(_delta):
@@ -24,15 +24,18 @@ func _process(_delta):
 		else:
 			world_turn()
 		
+	# Following two inputs need to be fixed because they screw up alot of stuff with the view window
 	if Input.is_action_just_pressed("wheel up"):
 		camera.zoom += Vector2 (.1,.1)
 		
 	if Input.is_action_just_pressed("wheel down"):
 		camera.zoom -= Vector2 (.1,.1)
 		
+	# Debug input just to test new features
 	if Input.is_action_just_pressed("test debug"):
 		print(Global.get_all_surrounding_cells(Global.player_coords, map))
 
+# Currently makes all "ai" creatures take a turn
 func world_turn():
 	
 	npc_turn()
@@ -49,6 +52,7 @@ func beast_turn():
 	for beast in beasts:
 		beast.move()
 
+# Input for clicking on a tile on the map. Opens the inspect window.
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		var clicked_tile : Vector2i = map.local_to_map(map.get_global_mouse_position())
@@ -56,6 +60,7 @@ func _unhandled_input(event):
 		$InspectWindow.setup_window(clicked_tile)
 	
 
+# Test function for player and ai to see if they can move into a space. May be made obsolete when grid pathfinding is introduced.
 func is_tile_walkable(coord):
 	
 	var tile_data : TileData = map.get_cell_tile_data(coord)
@@ -73,6 +78,7 @@ func is_tile_walkable(coord):
 	
 	return true
 	
+# Function that the interact window calls to split up the interact buttons function.
 func object_interact(tile:TileData, coords:Vector2i):
 	var type = tile.get_custom_data("type")
 	
