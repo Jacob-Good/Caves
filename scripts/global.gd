@@ -74,3 +74,50 @@ var items : Dictionary = {
 }
 
 var player_inventory : Array
+
+var weapon_types : Array = ["Dagger","Short Sword","Long Sword","Bastard Sword","Great Sword","Hand Axe",
+							"Felling Axe","Battle Axe","Great Axe","Club","Mace","Morning Star","Flail",
+							"Great Hammer","Warhammer","Quarter Staff","Spear","Halberd","Pole-Axe","Scythe",
+							"War Scythe","Scimitar","Falchion","Katana","Rapier"]
+
+var weapons : Dictionary = {
+	"Dagger": {"Type": "B", "Attack": 2, "Skills": ["Agility","Short Blades","Throwing","Reflex"], "Traits": [], "Base": [1,1,6,10]},
+	"Short Sword": {"Type": "M", "Attack": 3, "Skills": ["Agility","Strength","Short Blades","Reflex"], "Traits": [], "Base": [1,2,2,6]},
+	"Long Sword": {"Type": "M", "Attack": 4, "Skills": ["Strength","Long Blades"], "Traits": [], "Base": [1,2,2,7]},
+	"Bastard Sword": {"Type": "M", "Attack": 6, "Skills": ["Strength","Long Blades"], "Traits": [], "Base": [2,7,8,9]},
+	"Great Sword": {"Type": "M", "Attack": 8, "Skills": ["Strength","Long Blades","Great Weapon"], "Traits": [], "Base": [3,7,8,9]},
+	"Hand Axe": {"Type": "B", "Attack": 2, "Skills": ["Agility","Strength","Axes","Throwing"], "Traits": [], "Base": [3,3,7,10]},
+	"Felling Axe": {"Type": "M", "Attack": 4, "Skills": ["Strength","Axes"], "Traits": [], "Base": [3,3,7,9]},
+	"Battle Axe": {"Type": "M", "Attack": 6, "Skills": ["Strength","Axes"], "Traits": [], "Base": [3,3,7,9]},
+	"Great Axe": {"Type": "M", "Attack": 8, "Skills": ["Strength","Axes","Great Weapon"], "Traits": [], "Base": [3,7,9,9]},
+	"Club": {"Type": "M", "Attack": 3, "Skills": ["Strentgh","Bludgeons"], "Traits": [], "Base": [4,4,7,7]},
+	"Mace": {"Type": "M", "Attack": 4, "Skills": ["Strength","Bludgeons"], "Traits": [], "Base": [4,4,4,9]},
+	"Morning Star": {"Type": "M", "Attack": 4, "Skills": ["Strength","Bludgeons"], "Traits": [], "Base": [4,4,4,9]},
+	"Great Hammer": {"Type": "M", "Attack": 6, "Skills": ["Strength","Bludgeons","Great Weapon"], "Traits": [], "Base": [4,7,9,9]},
+	"War Hammer": {"Type": "M", "Attack": 5, "Skills": ["Strength","Bludgeons"], "Traits": [], "Base": [4,4,7,9]},
+	"Flail": {"Type": "M", "Attack": 4, "Skills": [], "Traits": ["Agility","Strength","Bludgeons"], "Base": [4,9,9,9]},
+	"Quarter Staff": {"Type": "M", "Attack": 2, "Skills": ["Agility","Strength","Bludgeons","Staffs"], "Traits": [], "Base": [4,7,8,9]},
+	"Spear": {"Type": "B", "Attack": 3, "Skills": ["Strength","Polearms"], "Traits": [], "Base": [5,7,8,10]},
+	"Halberd": {"Type": "M", "Attack": 4, "Skills": ["Strength","Axes","Polearms"], "Traits": [], "Base": [3,5,8,9]},
+	"Pole-Axe": {"Type": "M", "Attack": 4, "Skills": ["Strength","Axes","Bludgeons",'Polearms'], "Traits": [], "Base": [4,5,8,9]},
+	"Scythe": {"Type": "M", "Attack": 2, "Skills": ["Agility","Strength","Exotic Weapons"], "Traits": [], "Base": [2,2,3,7]},
+	"War Scythe": {"Type": "M", "Attack": 4, "Skills": ["Strength","Exotic Weapons","Polearms"], "Traits": [], "Base": [2,3,5,9]},
+	"Scimitar": {"Type": "M", "Attack": 4, "Skills": ["Agility","Strength","Long Blades","Exotic Weapons"], "Traits": [], "Base": [2,3,6,7]},
+	"Falchion": {"Type": "M", "Attack": 4, "Skills": ["Agility","Strength","Long Blades","Exotic Weapon"], "Traits": [], "Base": [2,3,6,7]},
+	"Katana": {"Type": "M", "Attack": 4, "Skills": ["Agility","Strength","Long Blades","Exotic Weapon"], "Traits": [], "Base": [2,2,6,8]},
+	"Rapier": {"Type": "M", "Attack": 3, "Skills": ["Agility","Long Blades","Reflex"], "Traits": [], "Base": [1,1,8,8]},
+	"Short Bow": {"Type": "R", "Attack": 3, "Skills": ["Agility","Shooting"], "Traits": [], "Base": [11,12,12,13]},
+	"Long Bow": {"Type": "R", "Attack": 4, "Skills": ["Agility","Shooting"], "Traits": [], "Base": [11,11,12,12]},
+	"Composite Bow": {"Type": "R", "Attack": 4,  "Skills": ["Agility","Shooting"], "Traits": [], "Base": [11,12,12,13]},
+	"Hand Crossbow": {"Type": "R", "Attack": 3,  "Skills": ["Agility","Shooting"], "Traits": [], "Base": [11,11,12,12]},
+	"Light Crossbow": {"Type": "R", "Attack": 4,  "Skills": ["Agility","Shooting"], "Traits": [], "Base": [11,11,12,12]},
+	"Heavy Crossbow": {"Type": "R", "Attack": 6,  "Skills": ["Agility","Shooting"], "Traits": [], "Base": [11,11,12,12]},
+	"Repeating Crossbow": {"Type": "R", "Attack": 4,  "Skills": ["Agility","Shooting","Exotic Weapon"], "Traits": [], "Base": [11,12,12,13]},
+	"Stone Bow": {"Type": "R", "Attack": 2,  "Skills": ["Agility","Shooting","Exotic Weapon"], "Traits": [], "Base": [11,11,12,12]},
+	"Sling": {"Type": "R", "Attack": 1, "Skills": ["Agility","Throwing"], "Traits": [], "Base": [11,12,12,12]},
+	"Dart": {"Type": "R", "Attack": 2, "Skills": ["Agility","Throwing"], "Traits": [], "Base": [11,12,12,12]},
+	"Shurikan": {"Type": "R", "Attack": 2, "Skills": ["Agility","Throwing"], "Traits": [], "Base": [11,12,12,12]}
+}
+
+var base_weapon_cards : Array = ["","Stab","Slash","Chop","Club","Dig In","Parry",
+							"Block","Thrust","Swing","Throw","Aim","Shoot","Let Loose"]
