@@ -1,2 +1,12 @@
 res://scenes/inventory_window.tscn
+res://scenes/game.gd
 res://scripts/global.gd
+res://scenes/game.tscn
+res://scenes/map.tscn
+res://scenes/player.tscn
+res://scenes/party_ui.tscn
+res://scenes/goblin.tscn
+res://scenes/npc.tscn
+res://scenes/inspect_window.tscn
+res://scenes/container_window.tscn
+res://scenes/item.tscn

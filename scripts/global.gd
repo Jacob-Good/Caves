@@ -121,3 +121,63 @@ var weapons : Dictionary = {
 
 var base_weapon_cards : Array = ["","Stab","Slash","Chop","Club","Dig In","Parry",
 							"Block","Thrust","Swing","Throw","Aim","Shoot","Let Loose"]
+
+var player_equip : Dictionary = {
+	"Head": "",
+	"Chest": "",
+	"Arms": "",
+	"Hands": "",
+	"Legs": "",
+	"Feet": "",
+	"Amulet": "",
+	"Ring01": "",
+	"Ring02": "",
+	"Hand01": "Spear",
+	"Hand02": "Dagger",
+}
+var companion_equip : Dictionary = {
+	"Head": "",
+	"Chest": "",
+	"Arms": "",
+	"Hands": "",
+	"Legs": "",
+	"Feet": "",
+	"Amulet": "",
+	"Ring01": "",
+	"Ring02": "",
+	"Hand01": "",
+	"Hand02": "",
+}
+
+var deck_list : Array
+
+
+func update_deck (player_gear, companion_gear):
+	Global.deck_list.clear()
+	var equip_slot =0
+	for n in player_gear:
+		if Global.player_equip[n] == "":
+			equip_slot += 1
+			pass
+		else:
+			if equip_slot < 6:
+				Global.deck_list.append_array(Global.armor[player_equip[n]]["Base"])
+			if equip_slot < 9:
+				Global.deck_list.append_array(Global.accesories[player_equip[n]]["Base"])
+			else:
+				Global.deck_list.append_array(Global.weapons[player_equip[n]]["Base"])
+			equip_slot += 1
+			
+	equip_slot = 0
+	for n in companion_gear:
+		if Global.companion_equip[n] == "":
+			equip_slot += 1
+			pass
+		else:
+			if equip_slot < 6:
+				Global.deck_list.append_array(Global.armor[companion_equip[n]]["Base"])
+			if equip_slot < 9:
+				Global.deck_list.append_array(Global.accesories[companion_equip[n]]["Base"])
+			else:
+				Global.deck_list.append_array(Global.weapons[companion_equip[n]]["Base"])
+			equip_slot += 1

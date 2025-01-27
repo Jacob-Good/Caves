@@ -33,7 +33,7 @@ func _process(_delta):
 		
 	# Debug input just to test new features
 	if Input.is_action_just_pressed("test debug"):
-		print(Global.get_all_surrounding_cells(Global.player_coords, map))
+		open_deck_list()
 
 # Currently makes all "ai" creatures take a turn
 func world_turn():
@@ -102,3 +102,9 @@ func object_interact(tile:TileData, coords:Vector2i):
 		"bed":
 			print("this is a bed")
 			
+func open_deck_list():
+	Global.update_deck(Global.player_equip, Global.companion_equip)
+	print(Global.deck_list)
+	for n in Global.deck_list:
+		print(Global.base_weapon_cards[n])
+	
